@@ -24,11 +24,15 @@
             rev = "8cb06e8dc69a1caa8620cdccf05101158c138d41";
             hash = "sha256-PCtbtq8dQxPpP2o2H5kbAGfhSxTtSkOn5UFER5nw93g=";
           };
-          nativeBuildInputs = with pkgs.python311Packages; [ numpy
-                                                             cython
-                                                             setuptools
-                                                             mpi4py
+          nativeBuildInputs = with pkgs; [ python311Packages.numpy
+                                           python311Packages.cython
+                                           python311Packages.setuptools
+                                           python311Packages.mpi4py
+                                           openmpi
+                                           fftw
+                                           fftwMpi
           ];
+          propagatedBuildInputs = with pkgs; [ openmpi fftw fftwMpi ];
         };
         python = pkgs.python311Packages.python;
         pythonEnv = python.withPackages (ps: with ps; [
@@ -46,6 +50,9 @@
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [
             pythonEnv
+            openmpi
+			fftw
+			fftwMpi
           ];
         };
       }
