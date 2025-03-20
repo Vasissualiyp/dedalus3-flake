@@ -41,9 +41,14 @@
           numpy
           scipy
           dedalus
-          jupyterlab  # Include JupyterLab in pythonEnv
+          #jupyterlab  # Include JupyterLab in pythonEnv
           ipykernel   # Include ipykernel to register kernels        
+
+          # Dedalus requirements
+          numexpr
           mpi4py
+          h5py
+          xarray
         ]);
       in
       {
@@ -51,8 +56,8 @@
           buildInputs = with pkgs; [
             pythonEnv
             openmpi
-			fftw
-			fftwMpi
+            fftw
+            fftwMpi
           ];
         };
       }
