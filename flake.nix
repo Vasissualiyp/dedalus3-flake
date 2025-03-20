@@ -41,7 +41,7 @@
           numpy
           scipy
           dedalus
-          #jupyterlab  # Include JupyterLab in pythonEnv
+          jupyterlab  # Include JupyterLab in pythonEnv
           ipykernel   # Include ipykernel to register kernels        
 
           # Dedalus requirements
